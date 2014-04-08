@@ -136,7 +136,7 @@ def configure(cgminer):
     add('multigraph cgminer_temperature')
     add('graph_category mining')
     add('graph_title Temperature')
-    add('graph_vlabel °C')
+    add('graph_vlabel Degrees Celsius')
 
     for dev in devs:
         dev_type = dev.__class__.__name__
@@ -185,7 +185,7 @@ def fetch(cgminer):
     for dev in devs:
         dev_type = dev.__class__.__name__
         prefix = '%s_%s' % (dev_type.lower(), dev.ident)
-        add('%s.value %d' % (prefix, dev.mh))
+        add('%s.value %d' % (prefix, dev.mh * 1e6))
 
     add('multigraph cgminer_utility')
 
